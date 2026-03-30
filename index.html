@@ -1,15 +1,23 @@
 <!doctype html>
-<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Download Hidden CTF Image</title>
-<style>
-body{font-family:system-ui,sans-serif;background:#0b0f19;color:#eef;margin:0;min-height:100vh;display:grid;place-items:center}
-.card{background:#121a2a;border:1px solid #26324a;border-radius:18px;padding:24px;width:min(900px,92vw)}
-img{width:100%;height:auto;border-radius:14px;display:block}
-a.btn{display:inline-block;margin-top:16px;background:#4b7bec;color:white;text-decoration:none;padding:12px 16px;border-radius:10px;font-weight:600}
-.small{color:#9fb0d0}
-</style></head><body><div class="card">
-<h1>CTF Image</h1>
-<p class="small">Download the image below. It preserves the hidden payload because it is a PNG file.</p>
-<img src="./secret_bunchez_lossless.png" alt="CTF image">
-<a class="btn" href="./secret_bunchez_lossless.png" download="secret_bunchez_lossless.png">Download image</a>
-</div></body></html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CTF Image Download</title>
+  <style>
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #0b0f19; color: #eef; font-family: system-ui, sans-serif; }
+    .card { width: min(900px, 92vw); background: #121a2a; border: 1px solid #26324a; border-radius: 18px; padding: 24px; box-shadow: 0 20px 60px rgba(0,0,0,.4); }
+    img { width: 100%; height: auto; border-radius: 14px; display: block; }
+    .hint { margin-top: 16px; color: #9fb0d0; line-height: 1.5; }
+    a { color: #7fb3ff; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>CTF Challenge</h1>
+    <p>Download the image from the link below. It is a PNG so the hidden message stays intact.</p>
+    <img src="secret_bunchez_lossless.png" alt="CTF image" />
+    <p class="hint"><a href="secret_bunchez_lossless.png" download="secret_bunchez_lossless.png">Download the image here</a></p>
+  </div>
+</body>
+</html>
