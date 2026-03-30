@@ -3,21 +3,39 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CTF Image Download</title>
+  <title>Jared CTF Challenge</title>
   <style>
-    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #0b0f19; color: #eef; font-family: system-ui, sans-serif; }
-    .card { width: min(900px, 92vw); background: #121a2a; border: 1px solid #26324a; border-radius: 18px; padding: 24px; box-shadow: 0 20px 60px rgba(0,0,0,.4); }
-    img { width: 100%; height: auto; border-radius: 14px; display: block; }
-    .hint { margin-top: 16px; color: #9fb0d0; line-height: 1.5; }
-    a { color: #7fb3ff; }
+    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@700;900&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: #0b0f19;
+      color: #eef;
+      font-family: 'Share Tech Mono', monospace;
+      padding: 32px 0;
+    }
+
+    .card {
+      width: min(960px, 92vw);
+      background: #0e1520;
+      border: 1px solid #1e2e44;
+      border-radius: 18px;
+      padding: 36px 32px 48px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.55), inset 0 0 80px rgba(255,60,0,0.03);
+    }
 
     /* ── Flame title ── */
     .flame-title {
       text-align: center;
-      font-family: 'Impact', 'Arial Black', sans-serif;
-      font-size: clamp(2rem, 8vw, 4.5rem);
+      font-family: 'Orbitron', 'Impact', sans-serif;
+      font-size: clamp(1.8rem, 7vw, 4.2rem);
       font-weight: 900;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
       background: linear-gradient(
         to top,
@@ -31,42 +49,84 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      filter: drop-shadow(0 0 8px rgba(255, 100, 0, 0.9))
-              drop-shadow(0 0 20px rgba(255, 60, 0, 0.7))
-              drop-shadow(0 0 40px rgba(200, 30, 0, 0.5));
+      filter: drop-shadow(0 0 8px rgba(255,100,0,0.9))
+              drop-shadow(0 0 20px rgba(255,60,0,0.7))
+              drop-shadow(0 0 40px rgba(200,30,0,0.5));
       animation: flicker 2.5s ease-in-out infinite;
-      margin: 0 0 4px 0;
+      margin: 0 0 28px 0;
     }
 
     @keyframes flicker {
-      0%, 100% {
-        filter: drop-shadow(0 0 8px rgba(255, 100, 0, 0.9))
-                drop-shadow(0 0 20px rgba(255, 60, 0, 0.7))
-                drop-shadow(0 0 40px rgba(200, 30, 0, 0.5));
+      0%,100% {
+        filter: drop-shadow(0 0 8px rgba(255,100,0,0.9))
+                drop-shadow(0 0 20px rgba(255,60,0,0.7))
+                drop-shadow(0 0 40px rgba(200,30,0,0.5));
       }
       30% {
-        filter: drop-shadow(0 0 12px rgba(255, 140, 0, 1))
-                drop-shadow(0 0 30px rgba(255, 80, 0, 0.85))
-                drop-shadow(0 0 55px rgba(220, 40, 0, 0.65));
+        filter: drop-shadow(0 0 14px rgba(255,140,0,1))
+                drop-shadow(0 0 32px rgba(255,80,0,0.85))
+                drop-shadow(0 0 58px rgba(220,40,0,0.65));
       }
       60% {
-        filter: drop-shadow(0 0 6px rgba(255, 80, 0, 0.8))
-                drop-shadow(0 0 16px rgba(255, 40, 0, 0.6))
-                drop-shadow(0 0 32px rgba(180, 20, 0, 0.4));
+        filter: drop-shadow(0 0 6px rgba(255,80,0,0.8))
+                drop-shadow(0 0 16px rgba(255,40,0,0.6))
+                drop-shadow(0 0 30px rgba(180,20,0,0.4));
       }
     }
 
-    /* ── Centered subtitle / description ── */
-    .card > p {
+    /* ── Intro block ── */
+    .intro {
       text-align: center;
+      max-width: 680px;
+      margin: 0 auto 36px;
+      line-height: 1.75;
+      font-size: 0.95rem;
+      color: #a8bdd8;
+      border: 1px solid #1e2e44;
+      border-radius: 12px;
+      padding: 20px 28px;
+      background: rgba(255,255,255,0.02);
     }
 
-    /* ── Centered download buttons section ── */
+    .intro .tag {
+      display: inline-block;
+      background: #ff4500;
+      color: #fff;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+
+    .intro p { margin: 0 0 10px; }
+    .intro p:last-child { margin: 0; }
+
+    .intro .warning {
+      color: #ff6b35;
+      font-size: 0.85rem;
+      border-top: 1px solid #1e2e44;
+      margin-top: 14px;
+      padding-top: 12px;
+    }
+
+    /* ── Hero image ── */
+    .hero-img {
+      width: 100%;
+      height: auto;
+      border-radius: 14px;
+      display: block;
+      margin-bottom: 40px;
+      border: 1px solid #1e2e44;
+    }
+
+    /* ── Buttons grid ── */
     .buttons-grid {
-      margin-top: 24px;
       display: grid;
-      gap: 28px;
-      max-width: 1000px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 32px;
     }
 
     .btn-block {
@@ -74,42 +134,110 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid #1e2e44;
+      border-radius: 16px;
+      padding: 20px 16px 24px;
+      transition: border-color 0.25s, box-shadow 0.25s;
+    }
+
+    .btn-block:hover {
+      border-color: #ff4500;
+      box-shadow: 0 0 24px rgba(255,69,0,0.18);
+    }
+
+    /* Guardian image */
+    .guardian-img {
+      width: min(160px, 80%);
+      height: 160px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid #26324a;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .guardian-name {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      color: #7fb3ff;
+      margin-bottom: 4px;
+      text-transform: uppercase;
     }
 
     .btn-label {
-      font: 600 1rem system-ui, sans-serif;
-      margin-bottom: 10px;
+      font-size: 0.82rem;
+      color: #7a90ab;
+      margin-bottom: 16px;
+      line-height: 1.45;
     }
 
-    .btn-block a img {
-      width: min(70vw, 420px);
+    .btn-block a { display: block; }
+
+    .btn-block a img.dl-btn {
+      /* 20% bigger than original min(70vw,420px) → min(84vw,504px) */
+      width: min(84vw, 504px);
+      max-width: 100%;
       height: auto;
       border-radius: 18px;
-      box-shadow: 0 10px 24px rgba(0,0,0,.15);
+      box-shadow: 0 10px 24px rgba(0,0,0,.25);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+
+    .btn-block a:hover img.dl-btn {
+      transform: scale(1.04);
+      box-shadow: 0 14px 32px rgba(0,0,0,.4);
     }
   </style>
 </head>
 <body>
   <div class="card">
-    <h1 class="flame-title">JARED CTF CHALLENGE</h1>
-    <p>Click the image button below to download the file.</p>
-    <img class="main" src="geeble.png" alt="jeeble">
 
-    <div class="buttons-grid">
-      <div class="btn-block">
-        <div class="btn-label">Sample text before the first button:</div>
-        <a href="#" aria-label="Download"><img src="blue_download.gif" alt="Download button blue"></a>
-      </div>
-      <div class="btn-block">
-        <div class="btn-label">Sample text before the second button:</div>
-        <a href="#" aria-label="Download"><img src="download_yellow.gif" alt="Download button yellow"></a>
-      </div>
-      <div class="btn-block">
-        <div class="btn-label">Sample text before the third button:</div>
-        <a href="#" aria-label="Download"><img src="BUTTON-d-2.png" alt="Download button green"></a>
-      </div>
+    <h1 class="flame-title">JARED CTF CHALLENGE</h1>
+
+    <!-- Intro -->
+    <div class="intro">
+      <span class="tag">&#9888; LIVE CTF</span>
+      <p>Welcome, challenger. Somewhere below lies the <strong style="color:#fff">one true download</strong> — the flag awaits those with keen eyes and good judgment.</p>
+      <p>Three guardians stand watch over three downloads. Only one guardian is trustworthy. Choose wisely and claim your prize.</p>
+      <p class="warning">&#9888;&nbsp; WARNING: The other two buttons will install crippling malware onto your device, sell your personal data to a guy named Gerald, and set your desktop wallpaper to a picture of a frog. You have been warned.</p>
     </div>
 
+    <!-- Hero image -->
+    <img class="hero-img" src="geeble.png" alt="CTF hero image">
+
+    <!-- Download buttons -->
+    <div class="buttons-grid">
+
+      <div class="btn-block">
+        <img class="guardian-img" src="lalala.jpg" alt="Guardian 1">
+        <div class="guardian-name">Guardian I</div>
+        <div class="btn-label">This guardian looks friendly and totally trustworthy. Probably.</div>
+        <a href="#" aria-label="Download option 1">
+          <img class="dl-btn" src="blue_download.gif" alt="Download button blue">
+        </a>
+      </div>
+
+      <div class="btn-block">
+        <img class="guardian-img" src="cat.jpg" alt="Guardian 2">
+        <div class="guardian-name">Guardian II</div>
+        <div class="btn-label">This guardian has seen things. Suspicious things. Don't let the eyes fool you.</div>
+        <a href="#" aria-label="Download option 2">
+          <img class="dl-btn" src="download_yellow.gif" alt="Download button yellow">
+        </a>
+      </div>
+
+      <div class="btn-block">
+        <img class="guardian-img" src="geeble.png" alt="Guardian 3">
+        <div class="guardian-name">Guardian III</div>
+        <div class="btn-label">Ancient. Unknowable. Geeble watches all who dare approach.</div>
+        <a href="#" aria-label="Download option 3">
+          <img class="dl-btn" src="BUTTON-d-2.png" alt="Download button green">
+        </a>
+      </div>
+
+    </div>
   </div>
 </body>
 </html>
